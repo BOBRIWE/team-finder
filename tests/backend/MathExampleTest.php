@@ -14,6 +14,6 @@ class MathExampleTest extends TestCase
 
     public function testAddFail()
     {
-        $this->assertEquals(3, Calc::Add(2, 4), "FAIL EXPECTED!");
+        $this->assertEquals(6, Calc::Add(2, 4), "FAIL EXPECTED!");
     }
 }
