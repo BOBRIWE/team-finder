@@ -32,9 +32,9 @@ jobs:
       - run: mkdir -p artifacts/phpunit/PHPUnit
       - run: vendor/bin/phpunit --log-junit artifacts/phpunit/PHPUnit/junit.xml ./tests/backend
       - store_test_results:
-          path: *php_unit_artifacts
+          path: artifacts/phpunit/PHPUnit
       - store_artifacts:
-          path: *php_unit_artifacts
+          path: artifacts/phpunit/PHPUnit
 workflows:
   version: 2
   build_and_test:
