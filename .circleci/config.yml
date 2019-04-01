@@ -30,7 +30,7 @@ jobs:
           keys:
             - build-cache-{{ .Revision }}
       - run: mkdir -p ~/phpunit
-      - run: vendor/bin/phpunit --log-junit ~/phpunit/junit.xml ./tests/backend
+      - run: vendor/bin/phpunit --log-junit ~/phpunit/PHPUnit.xml ./tests/backend
       - store_test_results:
           path: ~/phpunit
 workflows:
