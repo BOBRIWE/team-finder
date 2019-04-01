@@ -1,35 +1,36 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+aliases:
+  - &working_directory ~/team-finder
+
+executors:
+  php7:
     docker:
       - image: circleci/php:7.2-cli
+    working_directory: *working_directory
+
+jobs:
+  build:
+    executor: php7
     steps:
       - checkout
-      - run:
-        name: Install Docker Compose
-        command: |
-          curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-          chmod +x ~/docker-compose
-          sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      - run:
-        name: Install Composer
-        command: |
-          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      - run:
-        name: Building...
-        command: |
-          composer install
-          docker-compose up -d
-        when: always
+      - run: ls
+      - run: curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+      - run: chmod +x ~/docker-compose
+      - run: sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"      
+      - run: composer install
+      - save_cache:
+          key: build-cache
+          paths:
+            - *working_directory
   php-tests:
+    executor: php7
     steps:
-      - checkout
-      - run:
-        name: PHP Tests
-        command: |
-          mkdir -p ~/phpunit
-          vendor/bin/phpunit --log-junit ~/phpunit/junit.xml ./tests/backend
-        when: always
+      - restore_cache:
+          keys:
+            - build-cache
+      - run: mkdir -p ~/phpunit
+      - run: vendor/bin/phpunit --log-junit ~/phpunit/junit.xml ./tests/backend
       - store_test_results:
           path: ~/phpunit
       - store_artifacts:
@@ -39,6 +40,6 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test:
-        requires:
-          - build
+      - php-tests:
+          requires:
+            - build
