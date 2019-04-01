@@ -1,6 +1,7 @@
 version: 2.1
 aliases:
   - &working_directory ~/team-finder
+  - &php_unit_artifacts artifacts/phpunit/PHPUnit
 
 executors:
   php7:
@@ -32,9 +33,9 @@ jobs:
       - run: mkdir -p ~/phpunit
       - run: vendor/bin/phpunit --log-junit ~/phpunit/junit.xml ./tests/backend
       - store_test_results:
-          path: ~/phpunit
+          path: *php_unit_artifacts
       - store_artifacts:
-          path: ~/phpunit
+          path: *php_unit_artifacts
 workflows:
   version: 2
   build_and_test:
