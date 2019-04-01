@@ -1,7 +1,6 @@
 version: 2.1
 aliases:
-  - &working_directory ~/team-finder
-  - &php_unit_artifacts artifacts/phpunit/PHPUnit
+  - &working_directory ~/team-finder  
 
 executors:
   php7:
@@ -30,8 +29,8 @@ jobs:
       - restore_cache:
           keys:
             - build-cache-{{ .Revision }}
-      - run: mkdir -p ~/phpunit
-      - run: vendor/bin/phpunit --log-junit ~/phpunit/junit.xml ./tests/backend
+      - run: mkdir -p artifacts/phpunit/PHPUnit
+      - run: vendor/bin/phpunit --log-junit artifacts/phpunit/PHPUnit/junit.xml ./tests/backend
       - store_test_results:
           path: *php_unit_artifacts
       - store_artifacts:
