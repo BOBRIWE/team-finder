@@ -1,4 +1,6 @@
 {
+    "name": "team-finder/0.1.0",
+    "description": "Web site helping find teams",
     "autoload": {
         "psr-4": {
             "TeamFinder\\": "backend/"
