@@ -1,0 +1,7 @@
+# project executables
+
+/dist
+!/dist/hosts/nginx.conf
+
+# composer vendor dir
+/vendor

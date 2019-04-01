@@ -1,0 +1,28 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:1.15
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./dist/hosts:/etc/nginx/conf.d
+            - ./dist/www:/var/www
+            - ./dist/logs:/var/log/nginx
+        links:
+            - php
+    php:
+        build: ./images/php
+        tty: true
+        links:
+            - mysql
+        volumes:
+            - ./dist/www:/var/www
+    mysql:
+        image: mysql:8
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./dist/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
