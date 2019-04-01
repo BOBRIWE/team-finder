@@ -20,7 +20,7 @@ jobs:
       - run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"      
       - run: composer install
       - save_cache:
-          key: build-cache
+          key: build-cache-{{ .Revision }}
           paths:
             - *working_directory
   php-tests:
@@ -28,7 +28,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - build-cache
+            - build-cache-{{ .Revision }}
       - run: mkdir -p ~/phpunit
       - run: vendor/bin/phpunit --log-junit ~/phpunit/junit.xml ./tests/backend
       - store_test_results:
