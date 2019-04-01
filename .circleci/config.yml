@@ -29,12 +29,10 @@ jobs:
       - restore_cache:
           keys:
             - build-cache-{{ .Revision }}
-      - run: mkdir -p artifacts/phpunit/PHPUnit
-      - run: vendor/bin/phpunit --log-junit artifacts/phpunit/PHPUnit/junit.xml ./tests/backend
+      - run: mkdir -p ~/phpunit
+      - run: vendor/bin/phpunit --log-junit ~/phpunit/junit.xml ./tests/backend
       - store_test_results:
-          path: artifacts/phpunit/PHPUnit
-      - store_artifacts:
-          path: artifacts/phpunit/PHPUnit
+          path: ~/phpunit
 workflows:
   version: 2
   build_and_test:
