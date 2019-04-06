@@ -1,14 +1,13 @@
-FROM php:7.2-cli
+FROM php:7.2-fpm
 
 #Image Dependencies
 RUN apt-get update && apt-get install -y \
-        curl
+        curl \
+        && pecl install xdebug-2.6.1 \
+        && docker-php-ext-enable xdebug
 
 #Installing Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-#PHP Configuration
-#ADD php.ini /usr/local/etc/php/conf.d/40-custom.ini
 
 WORKDIR /var/www
 
