@@ -99,61 +99,10 @@
     </phpInfoCache>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
-  <component name="PhpStepFilterConfiguration">
-    <skipped_files>
-      <skipped_file file="$PROJECT_DIR$/vendor" />
-      <skipped_file file="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-    </skipped_files>
-    <skipped_functions>
-      <skipped_function name="Composer\Autoload\ClassLoader-&gt;loadClass" />
-      <skipped_function name="Composer\Autoload\ClassLoader-&gt;findFile" />
-      <skipped_function name="Composer\Autoload\includeFile" />
-      <skipped_function name="Composer\Autoload\ClassLoader-&gt;findFileWithExtension" />
-      <skipped_function name="tests\backend\MathExampleTest-&gt;runTest" />
-      <skipped_function name="tests\backend\MathExampleTest-&gt;runBare" />
-      <skipped_function name="PHPUnit\Framework\TestResult-&gt;run" />
-      <skipped_function name="tests\backend\MathExampleTest-&gt;run" />
-      <skipped_function name="PHPUnit\Framework\TestSuite-&gt;run" />
-      <skipped_function name="PHPUnit\TextUI\TestRunner-&gt;doRun" />
-      <skipped_function name="PHPUnit\Framework\Assert::assertTrue" />
-      <skipped_function name="PHPUnit\Framework\Assert::assertEquals" />
-      <skipped_function name="tests\backend\MathExampleTest-&gt;verifyMockObjects" />
-      <skipped_function name="PHPUnit\Framework\Assert::isTrue" />
-      <skipped_function name="PHPUnit\Framework\Assert::assertThat" />
-      <skipped_function name="include" />
-      <skipped_function name="PHPUnit\Framework\Constraint\IsEqual-&gt;__construct" />
-      <skipped_function name="tests\backend\MathExampleTest-&gt;assertPostConditions" />
-      <skipped_function name="PHPUnit\Framework\Constraint\IsTrue-&gt;__construct" />
-      <skipped_function name="PHPUnit" />
-    </skipped_functions>
-    <option name="skippedFunctions">
-      <list>
-        <option value="Composer\Autoload\ClassLoader-&gt;loadClass" />
-        <option value="Composer\Autoload\ClassLoader-&gt;findFile" />
-        <option value="Composer\Autoload\includeFile" />
-        <option value="Composer\Autoload\ClassLoader-&gt;findFileWithExtension" />
-        <option value="tests\backend\MathExampleTest-&gt;runTest" />
-        <option value="tests\backend\MathExampleTest-&gt;runBare" />
-        <option value="PHPUnit\Framework\TestResult-&gt;run" />
-        <option value="tests\backend\MathExampleTest-&gt;run" />
-        <option value="PHPUnit\Framework\TestSuite-&gt;run" />
-        <option value="PHPUnit\TextUI\TestRunner-&gt;doRun" />
-        <option value="PHPUnit\Framework\Assert::assertTrue" />
-        <option value="PHPUnit\Framework\Assert::assertEquals" />
-        <option value="tests\backend\MathExampleTest-&gt;verifyMockObjects" />
-        <option value="PHPUnit\Framework\Assert::isTrue" />
-        <option value="PHPUnit\Framework\Assert::assertThat" />
-        <option value="include" />
-        <option value="PHPUnit\Framework\Constraint\IsEqual-&gt;__construct" />
-        <option value="tests\backend\MathExampleTest-&gt;assertPostConditions" />
-        <option value="PHPUnit\Framework\Constraint\IsTrue-&gt;__construct" />
-        <option value="PHPUnit" />
-      </list>
-    </option>
-  </component>
   <component name="PhpUnit">
     <phpunit_settings>
       <phpunit_by_interpreter interpreter_id="a1d027b4-c88a-462d-9707-592b5649fdee" load_method="CUSTOM_LOADER" custom_loader_path="/opt/project/vendor/autoload.php" phpunit_phar_path="" />
+      <PhpUnitSettings load_method="CUSTOM_LOADER" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" />
     </phpunit_settings>
   </component>
 </project>
