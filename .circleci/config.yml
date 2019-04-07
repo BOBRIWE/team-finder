@@ -23,6 +23,8 @@ jobs:
           key: build-cache-{{ .Revision }}
           paths:
             - *working_directory
+      - store_artifacts:
+          path: *working_directory
   php-tests:
     executor: php7
     steps:

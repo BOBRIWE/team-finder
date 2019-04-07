@@ -16,6 +16,7 @@ services:
             - .:/var/www
             - ./logs/php:/var/log/php
         links:
+            - composer
             - mysql
     mysql:
         build: mysql
@@ -25,4 +26,10 @@ services:
             - ./db:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: secret
+    composer:
+        image: composer:1.8
+        working_dir: /var/www
+        command: install
+        volumes:
+            - .:/var/www
 

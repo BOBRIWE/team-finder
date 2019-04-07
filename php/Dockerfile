@@ -1,5 +1,7 @@
 FROM php:7.2-fpm
 
+WORKDIR /var/www
+
 # Image Dependencies
 RUN apt-get update && apt-get install -y \
         zip \
@@ -14,10 +16,6 @@ RUN wget https://getcomposer.org/installer -O - -q \
     | php -- --install-dir=/bin --filename=composer --quiet
 
 ADD php.ini /usr/local/etc/php/php.ini
-
-WORKDIR /var/www
-
-CMD [ "composer install" ]
 
 # From documentation: "The main purpose of a CMD is to provide defaults for an executing container.
 # These defaults can include an executable, or they can omit the executable,
