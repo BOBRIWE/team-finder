@@ -1,0 +1,25 @@
+FROM php:7.2-fpm
+
+# Image Dependencies
+RUN apt-get update && apt-get install -y \
+        zip \
+        unzip \
+        wget \
+        curl \
+        && pecl install xdebug-2.7.1 \
+        && docker-php-ext-enable xdebug
+
+# Installing Composer
+RUN wget https://getcomposer.org/installer -O - -q \
+    | php -- --install-dir=/bin --filename=composer --quiet
+
+ADD php.ini /usr/local/etc/php/php.ini
+
+WORKDIR /var/www
+
+CMD [ "composer install" ]
+
+# From documentation: "The main purpose of a CMD is to provide defaults for an executing container.
+# These defaults can include an executable, or they can omit the executable,
+# in which case you must specify an ENTRYPOINT instruction as well."
+CMD [ "php-fpm" ]

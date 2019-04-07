@@ -1,4 +1,4 @@
-<?php namespace backend\tests;
+<?php namespace tests\backend;
 
 use PHPUnit\Framework\TestCase;
 use TeamFinder\MathExample\Calc;
