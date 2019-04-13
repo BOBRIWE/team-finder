@@ -3,7 +3,7 @@
   <component name="PhpDockerContainerSettings">
     <list>
       <map>
-        <entry key="4925197a-98c5-4901-b831-3b87221d7fc2">
+        <entry key="14612465-19bc-439f-9205-46e74f605d25">
           <value>
             <DockerContainerSettings>
               <option name="version" value="1" />
@@ -18,7 +18,7 @@
             </DockerContainerSettings>
           </value>
         </entry>
-        <entry key="a1d027b4-c88a-462d-9707-592b5649fdee">
+        <entry key="238b6ad2-aef1-4fa5-af5d-e894234c9632">
           <value>
             <DockerContainerSettings>
               <option name="version" value="1" />
@@ -33,7 +33,7 @@
             </DockerContainerSettings>
           </value>
         </entry>
-        <entry key="a27cc622-db3c-4922-9495-4da24132f9c3">
+        <entry key="285eb681-97c3-442a-8c01-6be8dc2c02bf">
           <value>
             <DockerContainerSettings>
               <option name="version" value="1" />
@@ -48,7 +48,37 @@
             </DockerContainerSettings>
           </value>
         </entry>
-        <entry key="c0a127dc-ff6c-4c10-9c2a-5ef4a7e95422">
+        <entry key="2a548b7a-f900-4746-b51d-63b7b76b665e">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/opt/project" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+        <entry key="56c1e7ce-717a-4cb5-9b3d-66b71f23461d">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/opt/project" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+        <entry key="6f7b6bda-e70f-4b64-8b77-b271b84797fa">
           <value>
             <DockerContainerSettings>
               <option name="version" value="1" />

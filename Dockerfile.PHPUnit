@@ -16,7 +16,9 @@ RUN wget https://getcomposer.org/installer -O - -q \
     | php -- --install-dir=/bin --filename=composer --quiet
 
 
-ADD php.ini /usr/local/etc/php/php.ini
+COPY . /var/www
+
+RUN composer install
 
 # From documentation: "The main purpose of a CMD is to provide defaults for an executing container.
 # These defaults can include an executable, or they can omit the executable,

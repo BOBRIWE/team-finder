@@ -1,35 +1,44 @@
 version: '3'
 services:
-    nginx:
-        build: nginx
-        ports:
-            - 80:8080
-        volumes:
-            - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
-            - .:/var/www
-            - ./logs/nginx:/var/log/nginx
-        links:
-            - php
-    php:
-        build: php
-        volumes:
-            - .:/var/www
-            - ./logs/php:/var/log/php
-        links:
-            - composer
-            - mysql
-    mysql:
-        build: mysql
-        ports:
-            - "3306:3306"
-        volumes:
-            - ./db:/var/lib/mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: secret
-    composer:
-        image: composer:1.8
-        working_dir: /var/www
-        command: install
-        volumes:
-            - .:/var/www
+  nginx:
+    build: nginx
+    ports:
+      - 80:8080
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - .:/var/www
+      - ./logs/nginx:/var/log/nginx
+    links:
+      - php
+  php:
+    build: php
+    volumes:
+      - ./public:/var/www/public
+      - ./backend:/var/www/backend
+      - ./logs/php:/var/log/php
+      - composer-vendor:/var/www/vendor
+      - ./vendor:/var/www/vendor
+    links:
+      - composer
+      - mysql
+  composer:
+    build:
+      context: .
+      dockerfile: Dockerfile.Composer
+    volumes:
+      - composer-vendor:/var/www/vendor
+  mysql:
+    build: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+  php-unit:
+    build:
+      context: .
+      dockerfile: Dockerfile.PHPUnit
 
+volumes:
+  composer-vendor:
