@@ -2,6 +2,7 @@ version: '3'
 services:
   nginx:
     build: nginx
+    container_name: teamfinder-nginx
     ports:
       - 80:8080
     volumes:
@@ -12,16 +13,17 @@ services:
       - php
   php:
     build: php
+    container_name: teamfinder-php
     volumes:
       - ./public:/var/www/public
       - ./backend:/var/www/backend
       - ./logs/php:/var/log/php
       - composer-vendor:/var/www/vendor
-      - ./vendor:/var/www/vendor
     links:
       - composer
       - mysql
   composer:
+    container_name: teamfinder-composer
     build:
       context: .
       dockerfile: Dockerfile.Composer
@@ -29,6 +31,7 @@ services:
       - composer-vendor:/var/www/vendor
   mysql:
     build: mysql
+    container_name: teamfinder-mysql
     ports:
       - 3306:3306
     volumes:
@@ -36,6 +39,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: secret
   php-unit:
+    container_name: teamfinder-php-unit
     build:
       context: .
       dockerfile: Dockerfile.PHPUnit
