@@ -11,15 +11,6 @@ RUN apt-get update && apt-get install -y \
         && pecl install xdebug-2.7.1 \
         && docker-php-ext-enable xdebug
 
-# Installing Composer
-RUN wget https://getcomposer.org/installer -O - -q \
-    | php -- --install-dir=/bin --filename=composer --quiet
-
-
-COPY . /var/www
-
-RUN composer install
-
 # From documentation: "The main purpose of a CMD is to provide defaults for an executing container.
 # These defaults can include an executable, or they can omit the executable,
 # in which case you must specify an ENTRYPOINT instruction as well."

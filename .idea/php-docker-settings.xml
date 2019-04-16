@@ -40,7 +40,7 @@
               <option name="volumeBindings">
                 <list>
                   <DockerVolumeBindingImpl>
-                    <option name="containerPath" value="/opt/project" />
+                    <option name="containerPath" value="/var/www" />
                     <option name="hostPath" value="$PROJECT_DIR$" />
                   </DockerVolumeBindingImpl>
                 </list>
@@ -79,6 +79,21 @@
           </value>
         </entry>
         <entry key="6f7b6bda-e70f-4b64-8b77-b271b84797fa">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/opt/project" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+        <entry key="bd4c7a76-dfd0-4cc3-929c-d282d41a3c03">
           <value>
             <DockerContainerSettings>
               <option name="version" value="1" />

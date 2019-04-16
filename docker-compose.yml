@@ -42,6 +42,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.PHPUnit
+    links:
+      - composer
+    volumes:
+      - composer-vendor:/var/www/vendor
 
 volumes:
   composer-vendor:
