@@ -1,12 +1,17 @@
-<?php require_once '../vendor/autoload.php';
-use TeamFinder\Core\Form;
+<?php
+
+require_once '../vendor/autoload.php';
+
+use CompanyName\App\controllers\IndexController;
+use CompanyName\TeamFinder\Router\PathParser;
+use CompanyName\TeamFinder\Router\Router;
+
+$router = new Router();
+
+$router->add('/', new IndexController());
 
 
-$form = new Form('');
+$pathParser = new PathParser($_ENV['REQUEST_URI']);
 
-if (isset($_GET['test-form-button']))
-{
-    $form->setName($_GET['input-name']);
-}
 
-include 'views/index_view.php';
+$router->executeController($pathParser->getMainRoute());

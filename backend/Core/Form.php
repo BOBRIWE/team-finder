@@ -1,4 +1,6 @@
-<?php namespace TeamFinder\Core;
+<?php
+
+namespace CompanyName\TeamFinder\Core;
 
 class Form
 {

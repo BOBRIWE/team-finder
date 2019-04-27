@@ -3,7 +3,8 @@
     "description": "Web site helping find teams",
     "autoload": {
         "psr-4": {
-            "TeamFinder\\": "backend/"
+            "CompanyName\\TeamFinder\\": "backend/",
+            "CompanyName\\App\\": "public/"
         }
     },
     "require-dev": {

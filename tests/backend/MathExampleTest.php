@@ -1,7 +1,7 @@
 <?php namespace tests\backend;
 
 use PHPUnit\Framework\TestCase;
-use TeamFinder\MathExample\Calc;
+use CompanyName\TeamFinder\MathExample\Calc;
 
 
 class MathExampleTest extends TestCase

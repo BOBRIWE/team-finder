@@ -1,4 +1,6 @@
-<?php namespace TeamFinder\MathExample;
+<?php
+
+namespace CompanyName\TeamFinder\MathExample;
 
 class Calc 
 {

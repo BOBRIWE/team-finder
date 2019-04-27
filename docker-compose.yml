@@ -6,8 +6,10 @@ services:
     ports:
       - 80:8080
     volumes:
-      - .:/var/www
+      - ./public:/var/www/public
+      - ./backend:/var/www/backend
       - ./logs/nginx:/var/log/nginx
+      - composer-vendor:/var/www/vendor
     links:
       - php
   php:

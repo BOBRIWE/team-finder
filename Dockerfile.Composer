@@ -5,4 +5,5 @@ WORKDIR /var/www
 ADD composer.json /var/www/composer.json
 ADD composer.lock /var/www/composer.lock
 
+RUN composer dump-autoload
 RUN composer install
