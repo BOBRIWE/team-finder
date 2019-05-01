@@ -6,7 +6,7 @@ namespace CompanyName\TeamFinder\Router;
 class Router
 {
     /**
-     * @var IController[]
+     * @var ControllerInterface[]
      */
     private $paths = [];
 
@@ -15,13 +15,13 @@ class Router
 
     }
 
-    public function add(string $path, IController $controller) : void
+    public function add(string $path, ControllerInterface $controller) : void
     {
         $this->paths[$path] = $controller;
     }
 
-    public function executeController(string $path) : void
+    public function executeController(PathParser $pathParser) : void
     {
-        $this->paths[$path]->execute();
+        $this->paths[$pathParser->getMainRoute()]->execute($pathParser);
     }
 }

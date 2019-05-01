@@ -8,9 +8,9 @@
     <title>Main Page</title>
 </head>
 <body>
-    <form action="index.php" method="get">
+    <form action="/" method="get">
         <label>Name</label>
-        <input type="text" value="<?=$form->getName()?>" name="input-name"/>
+        <input type="text" value="<?=$viewArgs['input-name']?>" name="input-name"/>
         <button type="submit" name="test-form-button">submit</button>
     </form>
 </body>

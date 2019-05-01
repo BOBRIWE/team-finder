@@ -2,21 +2,20 @@
 
 namespace CompanyName\App\controllers;
 
-use CompanyName\TeamFinder\Core\Form;
-use CompanyName\TeamFinder\Router\IController;
+use CompanyName\TeamFinder\Router\ControllerInterface;
+use CompanyName\TeamFinder\Router\PathParser;
 
-class IndexController implements IController
+class IndexController implements ControllerInterface
 {
-    private $form;
-    public function execute()
+    public $viewArgs;
+    public function execute(PathParser $pathParser): void
     {
-        $this->form = new Form('');
+        $this->render($pathParser->getArgs());
+    }
 
-        if (isset($_GET['test-form-button']))
-        {
-            $this->form->setName($_GET['input-name']);
-        }
-
+    public function render(array $viewArgs): void
+    {
+        $form = 'str';
         include __DIR__.'/../views/index_view.php';
     }
 }
