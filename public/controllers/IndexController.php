@@ -15,7 +15,6 @@ class IndexController implements ControllerInterface
 
     public function render(array $viewArgs): void
     {
-        $form = 'str';
         include __DIR__.'/../views/index_view.php';
     }
 }
